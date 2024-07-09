@@ -1,38 +1,42 @@
 #include <stdio.h>
 /**
- * main - Prints all combinations of two digits with,
- * and space followed by new line
- *
- * Return: returns 0
- *
- * FUNCTONALITY *
- *
- * 1. The outer for loop is used to print the first digit of the two digit number.
- * 2. The inner for loop is used to print the second digit of the two digit number.
- * 3. The if statement is used to print the comma and space after each two digit number except the last two digit number.
- * 4. The putchar() function is used to print the digits and the comma and space.
- * 5. The continue statement is used to skip the printing of the comma and space after the last two digit number.
- * 6. The putchar('\n') function is used to print a new line after the last two digit number.
+ * main - main block
+ * Description: Print all possible combinations of two digits.
+ * Numbers must be separated by commas and a space.
+ * 01 and 10 are considered as the same combination of the two digits.
+ * Print only the smallest combination of two digits.
+ * Numbers should be printed in ascending order, with two digits.
+ * You can only use `putchar`.
+ * You can only use `putchar` up to 5 times.
+ * You are not allowed to use any variable of type `char`.
+ * Return: 0
  */
 int main(void)
 {
-	int digit1, digit2;
+	int a, b, c;
 
-	for (digit1 = 0; digit1 < 9; digit1++)
+	a = 0;
+
+	while (a < 100)
 	{
-		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
+		b = a % 10; /* singles digit */
+		c = a / 10; /* doubles digit */
+
+		if (c < b)
 		{
+			putchar(c + '0');
+			putchar(b + '0');
 
-			putchar((digit1 % 10) + '0');
-			putchar((digit2 % 10) + '0');
-
-			if (digit1 == 8 && digit2 == 9)
-				continue;
-
-			putchar(',');
-			putchar(' ');
+			if (a < 89)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
+
+		a++;
 	}
 	putchar('\n');
+
 	return (0);
 }
