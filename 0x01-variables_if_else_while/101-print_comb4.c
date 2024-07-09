@@ -1,50 +1,41 @@
 #include <stdio.h>
 /**
- * main - prints all combinations of three digits with,
- * and space followed by new line
- *
- * Return: returns 0
- *
- * FUNCTIONALITY *
- *
- * 1. The outermost for loop is for the hundreds digit.
- *
- * 2. The middle for loop is for the tens digit.
- *
- * 3. The innermost for loop is for the ones digit.
- *
- * 4. The if statement is to prevent the comma and space from being printed after the last number.
- *
- * 5. The putchar() function is used to print the digits.
- *
- * 6. The '0' is added to the digit to get the ASCII code for the digit.
- *
- * Time Complexity: O(n^3)
+ * main - main block
+ * Description: Print all possible different combinations of 3 digits.
+ * Numbers must be separated by commas and a space.
+ * The 3 digits must be different.
+ * 012, 120, 102, 021, 201, 210 are considered the same combination.
+ * print only the smallest combination of 3 digits.
+ * Numbers should be printed in ascending order.
+ * You can only use `putchar` to print to console.
+ * You can only use `putchar` up to 6 times.
+ * You are not allowed to use any variables of type `char`.
+ * Return: 0
  */
 int main(void)
 {
-	int hund;
-	int tens;
-	int ones;
+	int a, b, c, d;
 
-	for (hund = 0; hund <= 9; hund++)
+	for (a = 0; a < 1000; a++)
 	{
-		for (tens = hund + 1; tens <= 9; tens++)
-		{
-			for (ones = tens + 1; ones <= 9; ones++)
-			{
-				putchar(hund + '0');
-				putchar(tens + '0');
-				putchar(ones + '0');
+		b = a / 100; /* hundreds */
+		c = (a / 10) % 10; /* tens */
+		d = a % 10; /* singles */
 
-				if (hund < 7)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+		if (b < c && c < d)
+		{
+			putchar(b + '0');
+			putchar(c + '0');
+			putchar(d + '0');
+
+			if (a < 700)
+			{
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
 	putchar('\n');
+
 	return (0);
 }
