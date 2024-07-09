@@ -1,42 +1,23 @@
 #include <stdio.h>
-#include <ctype.h>
 /**
- * main - Print all single digits of base 16 followed by new line
- *
- * Return: returns 0
- *
- * FUNCTONALITY *
- *
- * 1. We declare a variable called digit and initialize it to 0.
- * 2. We start a for loop that will run as long as digit is less than or equal to 9.
- * 3. We print the value of digit.
- * 4. We increment digit by 1.
- * 5. If digit is equal to 9, we set it to a.
- * 6. We start a for loop that will run as long as digit is less than or equal to f.
- * 7. We print the value of digit.
- * 8. We increment digit by 1.
- * 9. We print a new line.
- * 10. We return 0.
- *
- * Time Complexity: O(1)
+ * main - main block
+ * Description: Print all numbers of base64 in lowercase.
+ * You can only use `putchar`, and only 3 times.
+ * Return: 0
  */
 int main(void)
 {
-	int digit;
+	int a;
 
-	for (digit = '0'; digit <= '9'; digit++)
+	for (a = 0; a < 10; a++)
 	{
-		putchar(digit);
-		if (digit == '9')
-		{
-			digit = 'a';
-			for (; digit <= 'f'; digit++)
-			{
-				putchar(digit);
-			}
-			break;
-		}
+		putchar(a + '0');
+	}
+	for (a = 'a'; a <= 'f'; a++)
+	{
+		putchar(a);
 	}
 	putchar('\n');
+
 	return (0);
 }
